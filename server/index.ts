@@ -41,3 +41,6 @@ app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
 app.listen(config.PORT, () =>
   console.log(`Server is running on port: ${config.PORT}`)
 );
+
+
+export default app
