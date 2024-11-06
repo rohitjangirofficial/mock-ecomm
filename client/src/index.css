@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Swiper Style */
+.swiper {
+  margin-bottom: -30px;
+}
+
+.swiper-wrapper {
+  padding-bottom: 40px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
+}
+
+/* Product Carousel Style */
+.productCarousel.carousel-root {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 15px;
+}
+
+.productCarousel.carousel-root .carousel {
+  width: auto;
+}
+
+.productCarousel.carousel-root .carousel.carousel-slider {
+  width: 100%;
+}
+
+.productCarousel.carousel-root .carousel.carousel-slider .slider-wrapper {
+  height: 550px;
+}
+
+.productCarousel.carousel-root
+  .carousel.carousel-slider
+  .slider-wrapper
+  .slider {
+  height: 100%;
+}
+
+.productCarousel.carousel-root
+  .carousel.carousel-slider
+  .slider-wrapper
+  .slider
+  .slide {
+  height: 100%;
+  background-color: rgb(243 244 246 / 1);
+  padding: 25px;
+}
+
+.productCarousel.carousel-root
+  .carousel.carousel-slider
+  .slider-wrapper
+  .slider
+  img {
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.productCarousel.carousel-root .carousel .thumbs-wrapper {
+  margin: 0;
+}
+
+.productCarousel.carousel-root .carousel .thumbs-wrapper .thumbs {
+  gap: 16px;
+}
+
+.productCarousel.carousel-root .carousel .thumb {
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+.productCarousel.carousel-root .carousel .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.productCarousel.carousel-root .carousel .thumb:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+}
+
+.productCarousel.carousel-root .carousel .thumb.selected,
+.productCarousel.carousel-root .carousel .thumb:hover {
+  border: 0;
+}
+
+.productCarousel.carousel-root .carousel .thumb:hover:after,
+.productCarousel.carousel-root .carousel .thumb.selected:after {
+  opacity: 0.2;
+}
+
+.productCarousel .control-arrow {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .productCarousel.carousel-root {
+    flex-direction: column;
+  }
+  .productCarousel.carousel-root .carousel .thumb {
+    border: 0;
+    padding: 0;
+  }
+  .productCarousel.carousel-root .carousel.carousel-slider .slider-wrapper {
+    height: 350px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .productCarousel.carousel-root .carousel .thumbs {
+    transform: none !important;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+  }
+  .productCarousel.carousel-root .carousel .thumb {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* Spinners Style */
+.loader {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 0.7s linear infinite;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
