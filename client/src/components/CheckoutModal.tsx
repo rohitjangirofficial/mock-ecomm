@@ -12,7 +12,6 @@ const CheckoutModal: React.FC<{
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("credit_card");
 
   if (!isOpen) return null;
 
